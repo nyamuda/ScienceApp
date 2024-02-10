@@ -7,7 +7,7 @@ The purpose of developing this software is to create a tool that supports physic
 As a software engineer, the goal is to leverage C# to build a functional and user-friendly application that enhances the learning experience for high school students studying physics.
 
 
-[Software Demo Video] (http://youtube.link.goes.here)
+[Software Demo Video] (https://youtu.be/Pq_lNrRaZrs)
 
 # Development Environment
 
