@@ -1,17 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ScienceApp.Models
+
+namespace ScienceApp.Dtos
 {
-    public class Subject
+    public class SubjectDto
     {
-        public int Id { get; set; }
 
         [Required]
         public string? Name { get; set; }
 
-        public Curriculum? Curriculum { get; set; }
-
-
+        [Required]
         public int CurriculumId { get; set; }
     }
 }

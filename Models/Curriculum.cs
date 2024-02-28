@@ -9,5 +9,7 @@ namespace ScienceApp.Models
         [Required]
         public string? Name { get; set; }
 
+
+
     }
 }

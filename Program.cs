@@ -13,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<CurriculumService>();
+builder.Services.AddScoped<SubjectService>();
 
 var app = builder.Build();
 
