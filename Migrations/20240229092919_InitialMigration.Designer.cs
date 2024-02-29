@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScienceApp.Data;
 
@@ -10,9 +11,11 @@ using ScienceApp.Data;
 namespace ScienceApp.Migrations
 {
     [DbContext(typeof(ScienceAppContext))]
-    partial class ScienceAppContextModelSnapshot : ModelSnapshot
+    [Migration("20240229092919_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

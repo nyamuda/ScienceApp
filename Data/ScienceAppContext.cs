@@ -21,16 +21,12 @@ namespace ScienceApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //the subject model has a many one relationship with the curriculum model
+            //there is a many to many relationship between subject and curriculum
             //it should cascade on delete
             modelBuilder.Entity<Subject>()
-                .HasOne<Curriculum>(s => s.Curriculum)
-                .WithMany()
-                .HasForeignKey(s => s.CurriculumId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
-
+                .HasMany(s => s.Curriculums)
+                .WithMany(c => c.Subjects)
+                .UsingEntity(j => j.ToTable("CurriculumSubject"));
 
 
         }

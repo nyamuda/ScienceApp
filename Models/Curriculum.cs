@@ -9,6 +9,8 @@ namespace ScienceApp.Models
         [Required]
         public string? Name { get; set; }
 
+        public List<Subject> Subjects { get; } = [];
+
 
 
     }

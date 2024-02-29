@@ -53,7 +53,7 @@ namespace ScienceApp.Controllers
         // PUT: api/Subjects/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSubject(int id, SubjectDto subject)
+        public async Task<IActionResult> PutSubject(int id, SubjectUpdateDto subject)
         {
             if (!ModelState.IsValid)
             {
@@ -88,12 +88,13 @@ namespace ScienceApp.Controllers
                 string errorMessage = "The curriculum with the given ID does not exist";
                 return BadRequest(errorMessage);
             }
+            int curriculumId = subjectDto.CurriculumId;
             Subject subject = new Subject()
             {
                 Name = subjectDto.Name,
-                CurriculumId = subjectDto.CurriculumId
+
             };
-            await _subjectService.createSubject(subject);
+            await _subjectService.createSubject(subject, curriculumId);
 
             return CreatedAtAction("GetSubject", new { id = subject.Id }, subject);
         }

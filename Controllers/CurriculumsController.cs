@@ -39,6 +39,7 @@ namespace ScienceApp.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCurriculum(int id)
         {
+
             var curriculum = await _service.GetCurriculum(id);
 
             if (curriculum == null)

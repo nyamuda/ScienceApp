@@ -19,14 +19,16 @@ namespace ScienceApp.Services
 
         public async Task<Curriculum?> GetCurriculum(int id)
         {
-            var curriculum = await _context.Curriculum.FindAsync(id);
+            //it must include the subjects
+            var curriculum = await _context.Curriculum.Include(c => c.Subjects).FirstOrDefaultAsync(c => c.Id == id);
 
             return curriculum;
         }
 
         public async Task<List<Curriculum>> GetCurricula()
         {
-            var curricula = await _context.Curriculum.ToListAsync();
+            //they must include the subjects
+            var curricula = await _context.Curriculum.Include(c => c.Subjects).ToListAsync();
 
             return curricula;
         }

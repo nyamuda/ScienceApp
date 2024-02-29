@@ -9,9 +9,6 @@ namespace ScienceApp.Models
         [Required]
         public string? Name { get; set; }
 
-        public Curriculum? Curriculum { get; set; }
-
-
-        public int CurriculumId { get; set; }
+        public List<Curriculum> Curriculums { get; } = [];
     }
 }

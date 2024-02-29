@@ -12,4 +12,10 @@ namespace ScienceApp.Dtos
         [Required]
         public int CurriculumId { get; set; }
     }
+
+    public class SubjectUpdateDto
+    {
+        [Required]
+        public string? Name { get; set; }
+    }
 }

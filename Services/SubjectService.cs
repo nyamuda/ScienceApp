@@ -17,11 +17,13 @@ namespace ScienceApp.Services
 
 
 
-        public async Task createSubject(Subject subject)
+        public async Task createSubject(Subject subject, int curriculumId)
         {
             //check if the curriculum exists
-            var curriculum = await _context.Curriculum.FindAsync(subject.CurriculumId);
+            var curriculum = await _context.Curriculum.FindAsync(curriculumId);
             if (curriculum == null) { return; }
+
+            subject.Curriculums.Add(curriculum);
 
             _context.Subject.Add(subject);
 
@@ -30,7 +32,7 @@ namespace ScienceApp.Services
 
         public async Task<Subject?> GetSubject(int id)
         {
-            var subject = await _context.Subject.Include(s => s.Curriculum).FirstOrDefaultAsync(s => s.Id == id);
+            var subject = await _context.Subject.Include(s => s.Curriculums).FirstOrDefaultAsync(s => s.Id == id);
 
             return subject;
         }
@@ -38,12 +40,12 @@ namespace ScienceApp.Services
         public async Task<List<Subject>> GetSubjects()
         {
             //get subjects with their curriculum
-            var subjects = await _context.Subject.Include(s => s.Curriculum).ToListAsync();
+            var subjects = await _context.Subject.Include(s => s.Curriculums).ToListAsync();
 
             return subjects;
         }
 
-        public async Task<Boolean> UpdateSubject(int id, SubjectDto subject)
+        public async Task<Boolean> UpdateSubject(int id, SubjectUpdateDto subject)
         {
             var itemExists = await _context.Subject.FindAsync(id);
 
