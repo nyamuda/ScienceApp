@@ -3,7 +3,7 @@
 This educational API is designed to assist high school science students in learning how to define science terms with the required specific keywords based on the curriculum they're doing (e.g., Cambridge, Edexcel, CAPS, etc.). The primary focus is on improving students' understanding of the required definitions for various science concepts. 
 
 
-The current version of the application includes a model for "Curriculum" and "Subject," allowing users to create, read, update, and delete curriculums and subjects. There is a many-one relationship between the "subject" and "curriculum models, meaning a curriculum can have many subjects while a subject can only have one curriculum.
+The current version of the application includes a model for "Curriculum" and "Subject," allowing users to create, read, update, and delete curriculums and subjects. There is a many-many relationship between the "subject" and "curriculum models, meaning a curriculum can have many subjects and a subject can have many curriculums.
 
 The purpose of developing this software is to create a tool that supports science students in mastering the art of defining terms accurately, which is crucial for academic success. 
 
